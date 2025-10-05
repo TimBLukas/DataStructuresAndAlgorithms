@@ -12,13 +12,22 @@ import unittest
 
 
 class Solution:
+    def __init__(self) -> None:
+        self.cache = []
+
     def climbStairs(self, n: int) -> int:
-        if n == 1:
-            return 1
-        elif n == 2:
-            return 2
-        else:
-            return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        for _ in reversed(range(n)):
+            if len(self.cache) == 0:
+                self.cache.insert(0, 1)
+
+            elif len(self.cache) == 1:
+                self.cache.insert(0, 2)
+
+            else:
+                val = self.cache[0] + self.cache[1]
+                self.cache.insert(0, val)
+
+        return self.cache[0]
 
 
 class TestSolution(unittest.TestCase):
