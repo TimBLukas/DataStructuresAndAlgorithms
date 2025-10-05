@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Check if the user provided an argument (filepath)
+if [ -z "$1" ]; then
+  echo "Error: No filepath was provided"
+  echo "Verwendung: $0 <filepath>"
+  exit 1
+fi
+
+# Store filename
+filepath="$1"
+
+# Create the file at the provided path
+touch "$filepath"
+
+echo "Created $filepath"
+
+# Write contents of template into provided filepath
+cat setup/setup_template.txt >"$filepath"
