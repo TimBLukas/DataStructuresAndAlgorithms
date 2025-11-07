@@ -16,4 +16,4 @@ touch "$filepath"
 echo "Created $filepath"
 
 # Write contents of template into provided filepath
-cat setup/setup_template_python.txt >"$filepath"
+cat setup/setup_template_java.txt >"$filepath"

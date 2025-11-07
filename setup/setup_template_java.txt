@@ -1,0 +1,68 @@
+// Optionale imports
+// import java.util.HashMap;
+// import java.util.Arrays;
+
+/*
+* Lösungsbeschreibung: 
+*/
+
+/**
+ * Klasse für die Lösung
+ */
+class Solution {
+  /**
+  * Dies ist die Hauptfunktion, in die du deine Logik schreibst.
+  * Ändere die Signatur (Funktionsname, Parameter, Rückgabetyp) entsprechend der LeetCode-Aufgabe.
+  *
+  * Beispiel für "Two Sum":
+  * public int[] twoSum(int[] nums, int target) {
+  */
+  public int problemTemplate(int[] nums) {
+    // Schreibe hier deine Lösung.
+    // Der aktuelle Code ist nur ein Platzhalter.
+    System.out.println("Eingabe: " + java.util.Arrays.toString(nums));
+    
+    // Gib das Ergebnis zurück
+    return 0;
+  }
+}
+
+/**
+ * Test Cases
+ */
+public class Main {
+  public static void main(String[] args) {
+    Solution solver = new Solution();
+
+    // Testfall 1
+    int[] input1 = {1, 2, 3, 4, 5};
+    int expected1 = 0; // Passe den erwarteten Wert an.
+    int result1 = solver.problemTemplate(input1);
+    // Einfache Überprüfung mit assert oder manueller Ausgabe
+    if (result1 == expected1) {
+      System.out.println("Testfall 1 erfolgreich!");
+    } else {
+      System.err.println("Fehler bei Testfall 1: Erwartet " + expected1 + ", aber erhalten " + result1);
+    }
+
+    // Testfall 2
+    int[] input2 = {10, 20, 30};
+    int expected2 = 0; // Passe den erwarteten Wert an.
+    int result2 = solver.problemTemplate(input2);
+    if (result2 == expected2) {
+      System.out.println("Testfall 2 erfolgreich!");
+    } else {
+      System.err.println("Fehler bei Testfall 2: Erwartet " + expected2 + ", aber erhalten " + result2);
+    }
+
+    // Test für Edge cases
+    int[] input3 = {};
+    int expected3 = 0; // Passe den erwarteten Wert an.
+    int result3 = solver.problemTemplate(input3);
+    if (result3 == expected3) {
+      System.out.println("Testfall für Randfälle erfolgreich!");
+    } else {
+      System.err.println("Fehler bei Testfall für Randfälle: Erwartet " + expected3 + ", aber erhalten " + result3);
+    }
+  }
+}
