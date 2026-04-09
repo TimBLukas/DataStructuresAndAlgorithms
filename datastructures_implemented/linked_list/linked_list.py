@@ -11,7 +11,7 @@ Operations:
 - Traversal:
 - Insertion
 - Deletion
-  Searching
+-  Searching
 - Updating
 - Reverseal
 """
@@ -33,28 +33,27 @@ class LinkedList:
         else:
             self.head = Node(head)
 
-        self.len = 1
+        self.tmp = self.head 
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        self.head = self.head.next
-        
-        if self.head.next is not None:
-            self.head = self.head.next
-            return self.head.val
+        if self.tmp.next is not None:
+            self.tmp = self.tmp.next
+            return self.tmp.data
 
-        return StopIteration
+        self.tmp = self.head
+        raise StopIteration
 
     def __len___(self):
         return self.len()
 
-    def append(self, val):
+    def append(self, data):
         curr = self.head
         while curr.next is not None:
             curr = curr.next
-        curr.next = Node(val)
+        curr.next = Node(data)
 
 
     def remove(self, idx):
@@ -80,11 +79,11 @@ class LinkedList:
         return curr
 
         
-    def find(self, val):
+    def find(self, data):
         start = self.head
         i = 0
         while curr is not None:
-            if curr.val == val:
+            if curr.data == data:
                 return i
             prev = curr
             curr = curr.next
@@ -98,17 +97,17 @@ class LinkedList:
                 return ValueError("End of list reached")
             curr = curr.next
 
-        return curr.val
+        return curr.data
 
 
-    def update(self, idx, val):
+    def update(self, idx, data):
         curr = self.head
         for i in range(idx):
             if curr.next == None:
                 return ValueError("End of list reached")
             curr = curr.next
 
-        curr.val = val
+        curr.data = data
 
     def reverse(self):
         curr = self.head
@@ -119,7 +118,7 @@ class LinkedList:
             prev = curr
             curr = next_node
 
-        return prev
+        self.head = prev
 
     def len(self) -> int:
         l = 0
@@ -127,7 +126,7 @@ class LinkedList:
         while curr is not None:
             curr = curr.next
             l += 1
-        return l
+        return l - 1
 
 
 class DoublyLinkedList:
@@ -136,6 +135,7 @@ class DoublyLinkedList:
 
 
 def print_list(list: LinkedList):
+    print("List: ")
     for val in list:
         print(val)
 
@@ -149,6 +149,15 @@ def main():
 
     ll.update(2, 20)
 
+    ll.append(5)
+    ll.append(6)
+    ll.append(7)
+
+    print_list(ll)
+    print(ll.get(2))
+    print(ll.len())
+
+    ll.reverse()
     print_list(ll)
 
 
