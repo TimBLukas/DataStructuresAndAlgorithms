@@ -16,117 +16,137 @@ Operations:
 - Reverseal
 """
 
-# 1 - 2 - 3 - 5
-
 
 class Node:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, val):
+        self.val = val
         self.next = None
 
 
 class LinkedList:
+    def __init__(self, val=None):
+        self.val = val
+        self.next = None
 
-    def __init__(self, head):
-        if isinstance(head, Node):
-            self.head = head
-        else:
-            self.head = Node(head)
 
-        self.tmp = self.head 
+    def __init__(self, iterable=None):
+        self.head = None
+        self.tail = None
+        self._len = 0
+
+        if iterable:
+            for x in iterable:
+                self.append(x)
+
+
+    def __repr__(self):
+        return f"LinkedList({list(self)})"
+
+
+    def __str__(self):
+        return " -> ".join(map(str, self))
+
 
     def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.tmp.next is not None:
-            self.tmp = self.tmp.next
-            return self.tmp.data
-
-        self.tmp = self.head
-        raise StopIteration
-
-    def __len___(self):
-        return self.len()
-
-    def append(self, data):
         curr = self.head
-        while curr.next is not None:
+        while curr:
+            yield curr.val
             curr = curr.next
-        curr.next = Node(data)
+
+
+    def __len__(self):
+        count = 0
+        curr = self.head
+        while curr:
+            count += 1
+            curr = curr.next
+        return count
+
+
+    def append(self, val):
+        if not self.head:
+            self.head = Node(val)
+            return
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = Node(val)
+
+
+    def get(self, idx):
+        curr = self.head
+        for _ in range(idx):
+            if not curr:
+                raise IndexError
+            curr = curr.next
+        if not curr:
+            raise IndexError
+        return curr.val
 
 
     def remove(self, idx):
-        prev = self.head
-        curr = self.head
-        cnt = 0
-        if idx:
-            for _ in range(idx):
-                if curr.next == None:
-                    return ValueError("end of list reached")
-                prev = curr 
-                curr = curr.next 
-            prev.next = curr.next
+        if idx == 0:
+            if not self.head:
+                raise IndexError
+            self.head = self.head.next
             return
-        
+
+        prev = self.head
+        for _ in range(idx - 1):
+            if not prev or not prev.next:
+                raise IndexError
+            prev = prev.next
+
+        if not prev.next:
+            raise IndexError
+        prev.next = prev.next.next
+
 
     def pop(self):
-        while curr is not None:
+        if not self.head:
+            raise IndexError
+
+        if not self.head.next:
+            val = self.head.val
+            self.head = None
+            return val
+
+        prev = self.head
+        curr = self.head.next
+        while curr.next:
             prev = curr
             curr = curr.next
 
-        prev.next == None
-        return curr
+        prev.next = None
+        return curr.val
 
-        
-    def find(self, data):
-        start = self.head
+
+    def find(self, val):
+        curr = self.head
         i = 0
-        while curr is not None:
-            if curr.data == data:
+        while curr:
+            if curr.val == val:
                 return i
-            prev = curr
             curr = curr.next
             i += 1
+        return -1
 
-
-    def get(self, idx: int):
-        curr = self.head
-        for i in range(idx):
-            if curr.next == None:
-                return ValueError("End of list reached")
-            curr = curr.next
-
-        return curr.data
-
-
-    def update(self, idx, data):
-        curr = self.head
-        for i in range(idx):
-            if curr.next == None:
-                return ValueError("End of list reached")
-            curr = curr.next
-
-        curr.data = data
 
     def reverse(self):
-        curr = self.head
         prev = None
-        while curr is not None:
-            next_node = curr.next
+        curr = self.head
+        while curr:
+            nxt = curr.next
             curr.next = prev
             prev = curr
-            curr = next_node
-
+            curr = nxt
         self.head = prev
 
-    def len(self) -> int:
-        l = 0
-        curr = self.head
-        while curr is not None:
-            curr = curr.next
-            l += 1
-        return l - 1
+
+
+    def copy(self):
+        return LinkedList(self)
+
 
 
 class DoublyLinkedList:
@@ -146,16 +166,13 @@ def main():
     ll.append(3)
     ll.append(4)
 
-
-    ll.update(2, 20)
-
     ll.append(5)
     ll.append(6)
     ll.append(7)
 
     print_list(ll)
     print(ll.get(2))
-    print(ll.len())
+    print(len(ll))
 
     ll.reverse()
     print_list(ll)
