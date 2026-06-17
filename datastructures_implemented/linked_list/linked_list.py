@@ -18,6 +18,10 @@ Operations:
 
 
 class Node:
+    """
+    A single Node that is part of the linked list
+    has the fields val and next
+    """
     def __init__(self, val):
         self.val = val
         self.next = None
