@@ -20,10 +20,36 @@ Output: true
 
 from typing import List
 
-
 class Solution:
-        def check_pos_in_word(board: List[List[str]], word: str, curr_idx: int, x: int, y: int) -> bool:
-                return True if board[y, x] == word[curr_idx] else False
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        rows, cols = len(board), len(board[0])
 
-        def exist(self, board: List[List[str]], word: str) -> bool:
-                pass
+        def dfs(x, y, idx):
+            if idx == len(word):
+                return True
+
+            if x < 0 or x >= rows or y < 0 or y >= cols:
+                return False
+
+            if board[x][y] != word[idx]:
+                return False
+
+            temp = board[x][y]
+            board[x][y] = "#"  # markieren
+
+            found = (
+                dfs(x + 1, y, idx + 1) or
+                dfs(x - 1, y, idx + 1) or
+                dfs(x, y + 1, idx + 1) or
+                dfs(x, y - 1, idx + 1)
+            )
+
+            board[x][y] = temp  # backtracking
+            return found
+
+        for i in range(rows):
+            for j in range(cols):
+                if dfs(i, j, 0):
+                    return True
+
+        return False
