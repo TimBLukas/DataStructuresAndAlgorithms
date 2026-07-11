@@ -90,7 +90,7 @@ Huffman coding does exactly that: it looks at the characters being used and trie
 Huffman coding generates a tree:
 
 ```mermaid
-flowchart TD:
+flowchart TD
   root --> parent
   root --> T
   parent --> I
