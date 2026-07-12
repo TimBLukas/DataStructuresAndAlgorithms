@@ -16,33 +16,27 @@ struct ListNode* removeElements(struct ListNode* head, int val)
         if (head == NULL)
                 return head;
 
-        // 1. get node to use while iterating
         struct ListNode dummy;
         dummy.next = head;
 
         struct ListNode* prev = &dummy;
         struct ListNode* curr = head;
 
-        // 2. iterate through list
         while (curr != NULL) 
         {
-                // 3. Check condition
                 if (curr->val == val)
                 {
                         prev->next = curr->next;
-                        // Only move curr pointer
                         curr = curr->next;
                 }
                 else 
                 {
-                        // move both pointers
                         prev = prev->next;
                         curr = curr->next;
                 }
 
         }
 
-        // 6. return head of linked list
         return dummy.next;
 
 }
