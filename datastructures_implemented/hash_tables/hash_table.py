@@ -4,19 +4,18 @@ from typing import Any
 
 BUCKETS: int = 64
 
+
 @dataclass
 class Node:
     val: tuple[Any, Any]
-    next
+    next: "Node | None" = None
 
 class HashTable:
-    table = [(None, None) for i in range(BUCKETS)]
-
     def __init__(self):
-        pass
+        self.table = [None for _ in range(BUCKETS)]
 
     def _hash(self, s: str) -> int:
-        return (len(s)) % BUCKETS
+        return len(s) % BUCKETS
 
     def _get_index(self, s):
         if isinstance(s, str):
@@ -25,33 +24,39 @@ class HashTable:
 
     def _extend_linked_list(self, head: Node, key, val):
         curr = head
+
         while curr.next is not None:
             curr = curr.next
 
-        curr.next = Node((key, val), None)
+        curr.next = Node((key, val))
 
     def add(self, key, value):
         idx = self._get_index(key)
-        if self.table[idx] == None:
-            self.table[idx] = (key, value)
+
+        if self.table[idx] is None:
+            self.table[idx] = Node((key, value))
         else:
             if isinstance(self.table[idx], Node):
-                self._extend_linked_list(head, key, value)
-            else:
-                self.table[idx] = Node((self.table[idx][0], self.table[idx][1]), None)
+                self._extend_linked_list(self.table[idx], key, value)
 
     def get(self, key):
         idx = self._get_index(key)
-        val = self.table[idx]
+        curr = self.table[idx]
 
-        if not isinstance(val, Node):
-            return val
+        while curr is not None:
+            if curr.val[0] == key:
+                return curr.val[1]
+            curr = curr.next
 
-        else:
-            pass
+        return None
 
     def iter(self):
-        pass
+        for bucket in self.table:
+            curr = bucket
+
+            while curr is not None:
+                yield curr.val
+                curr = curr.next
 
 
 def main():
@@ -61,7 +66,8 @@ def main():
     hash_table.add("Second", 2)
     hash_table.add("Third", 3)
 
-
+    print(hash_table.get("First"))
+    print(hash_table.get("Third"))
 
 
 if __name__ == "__main__":
