@@ -12,6 +12,6 @@ class Solution:
             if idx == -1:
                 return False
 
-            magazine = magazine[0:idx - 1] + magazine[idx:]
+            magazine = magazine[0:idx] + magazine[idx + 1:]
 
         return True
