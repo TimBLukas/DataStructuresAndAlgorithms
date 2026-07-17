@@ -35,14 +35,14 @@ void moveZeroesTwo(int* nums, int numsSize)
     int insert = 0;
     for ( int i = 0; i < numsSize; i++)
     {
-        if (i != 0)
+        if (nums[i] != 0)
         {
             nums[insert++] = nums[i];
         }
     }
 
-    for ( int j = insert; j < numsSize; j++ )
+    for ( ; insert < numsSize; insert++ )
     {
-        nums[j] = 0;
+        nums[insert] = 0;
     }
 }
