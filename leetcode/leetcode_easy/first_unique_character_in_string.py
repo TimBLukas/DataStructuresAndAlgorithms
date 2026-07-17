@@ -23,7 +23,7 @@ class Solution:
                 char_map[c] = IdxToBool(i, False)
             
         for key in char_map.keys():
-            if not char_map[key]:
+            if not char_map[key].isDuplicate:
                 return char_map[key].idx
 
         return -1
