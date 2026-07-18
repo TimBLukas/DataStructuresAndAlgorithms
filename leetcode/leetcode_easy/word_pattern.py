@@ -15,19 +15,23 @@ class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         letter_to_word = {}
         word_list = s.split(" ")
+        seen = set([])
 
         for i, c in enumerate(pattern):
-            if c not in letter_to_word.keys():
-                letter_to_word[c] = word_list[i]
-            
-        compare_string = ""
+            if c not in letter_to_word.keys() and i < len(word_list):
+                if word_list[i] not in seen:
+                    letter_to_word[c] = word_list[i]
+                    seen.add(word_list[i])
+
+                else:
+                    return False
+
+        compare_string: str = ""
 
         for letter in pattern:
-            compare_string += word_list.get(letter) + " "
+            compare_string += letter_to_word.get(letter, "-1") + " "
 
-        if compare_string.trim() == s:
+        if compare_string.strip() == s:
             return True
-        
+
         return False
-
-
