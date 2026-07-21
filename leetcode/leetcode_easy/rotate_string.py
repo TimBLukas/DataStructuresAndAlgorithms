@@ -8,6 +8,8 @@ A shift on s consists of moving the leftmost character of s to the rightmost pos
 
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
         for i, c in enumerate(s):
             if c == goal[0]:
                 comp = (
