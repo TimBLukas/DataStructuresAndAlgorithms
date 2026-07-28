@@ -15,14 +15,11 @@ int maxProduct(int* nums, int numsSize)
 
         for ( int i = 0; i < numsSize; i++ )
         {
-                if ( nums[i] > val_1 )
-                {
-                        if ( nums[i] > val_2 )
-                        {
+                if ( nums[i] > val_1 ) {
+                        if ( nums[i] > val_2 ) {
                                 val_1 = val_2;
                                 val_2 = nums[i];
-                        }
-                        else
+                        } else
                                 val_1 = nums[i];
                 }
         }

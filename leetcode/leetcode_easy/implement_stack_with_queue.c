@@ -20,7 +20,8 @@
 
 #define MAX_SIZE 100
 
-typedef struct {
+typedef struct 
+{
     int items[MAX_SIZE];
     int front;
     int rear;

@@ -35,8 +35,7 @@ char *addStrings(char *num1, char *num2)
 
     int carry = 0;
 
-    while (i >= 0 || j >= 0 || carry)
-    {
+    while ( i >= 0 || j >= 0 || carry ) {
         int sum = carry;
 
         if (i >= 0)

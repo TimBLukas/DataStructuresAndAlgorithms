@@ -24,8 +24,7 @@ typedef struct
 
 int findValue( Pair* map, int size, int key )
 {
-        for ( int i = 0; i < size; i++ )
-        {
+        for ( int i = 0; i < size; i++ ) {
                 if ( map[i].key == key )
                         return map[i].value;
         }
@@ -44,8 +43,7 @@ int* nextGreaterElement(int* nums1, int nums1Size, int* nums2, int nums2Size, in
         int* stack = malloc(nums2Size * sizeof(int));
         int top = -1;
 
-        for ( int i = nums2Size - 1; i >= 0; i-- )
-        {
+        for ( int i = nums2Size - 1; i >= 0; i-- ) {
                 while (top >= 0 && stack[top] <= nums2[i])
                         top--;
 

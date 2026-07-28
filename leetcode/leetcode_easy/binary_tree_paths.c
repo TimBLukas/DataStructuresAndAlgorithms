@@ -27,18 +27,17 @@ struct TreeNode
 
 void dfs(struct TreeNode* node, char* path, char** result, int* returnSize)
 {
-    if (node == NULL)
+    if ( node == NULL )
         return;
 
     char currentPath[1024];
 
-    if (strlen(path) == 0)
+    if ( strlen(path) == 0 )
         snprintf(currentPath, sizeof(currentPath), "%d", node->val);
     else
         snprintf(currentPath, sizeof(currentPath), "%s->%d", path, node->val);
 
-    if (node->left == NULL && node->right == NULL)
-    {
+    if ( node->left == NULL && node->right == NULL ) {
         result[*returnSize] = malloc(strlen(currentPath) + 1);
         strcpy(result[*returnSize], currentPath);
         (*returnSize)++;

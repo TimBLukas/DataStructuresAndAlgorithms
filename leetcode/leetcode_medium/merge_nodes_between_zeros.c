@@ -30,23 +30,19 @@ struct ListNode* mergeNodes(struct ListNode* head)
         struct ListNode* tail = head->next;
         int count = 0;
 
-        while ( tail != NULL )
-        {
-                if ( tail->val != 0 )
-                {
+        while ( tail != NULL ) {
+                if ( tail->val != 0 ) {
                         count += tail->val;
                         tail = tail->next;
-                }
-                else
-                {
+                } else {
                         curr->val = count;
 
                         tail = tail->next;
                         if ( tail != NULL)
                                 curr = curr->next;
+
                         count = 0;
                 }
-                printf("%d, %d\n", count, curr->val);
         }
         curr->next = NULL;
 

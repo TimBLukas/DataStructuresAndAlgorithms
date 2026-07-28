@@ -41,8 +41,7 @@ RecentCounter* recentCounterCreate()
 
 int recentCounterPing( RecentCounter* obj, int t )
 {
-        if ( obj->size == obj->capacity )
-        {
+        if ( obj->size == obj->capacity ) {
                 obj->capacity *= 2;
                 obj->requests = realloc( obj->requests, obj->capacity * sizeof(int));
         }

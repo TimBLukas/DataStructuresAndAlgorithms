@@ -13,16 +13,14 @@ void moveZeroes(int* nums, int numsSize)
 {
     int i, j;
     int added_zeroes = 0;
-    for (i=0; i < numsSize; i++)
-    {
+    for ( i=0; i < numsSize; i++ ) {
         if ( i >= numsSize - added_zeroes )
             return;
-        else if ( nums[i] == 0 )
-        {
-            for (j=i + 1; j < numsSize; j++)
-            {
+        else if ( nums[i] == 0 ) {
+            for ( j=i + 1; j < numsSize; j++ ) {
                 nums[j - 1] = nums[j];
             }
+
             nums[numsSize - 1] = 0;
             added_zeroes++;
             i--;
@@ -33,16 +31,13 @@ void moveZeroes(int* nums, int numsSize)
 void moveZeroesTwo(int* nums, int numsSize) 
 {
     int insert = 0;
-    for ( int i = 0; i < numsSize; i++)
-    {
-        if (nums[i] != 0)
-        {
+    for ( int i = 0; i < numsSize; i++ ) {
+        if ( nums[i] != 0 ) {
             nums[insert++] = nums[i];
         }
     }
 
-    for ( ; insert < numsSize; insert++ )
-    {
+    for ( ; insert < numsSize; insert++ ) {
         nums[insert] = 0;
     }
 }

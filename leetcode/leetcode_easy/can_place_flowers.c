@@ -14,16 +14,11 @@ bool canPlaceFlowers(int* flowerbed, int flowerbedSize, int n)
         bool can_plant = true;
         int plant_spots = 0;
 
-        for (int i=0; i < flowerbedSize; i++)
-        {
-                if (flowerbed[i] == 1)
-                {
+        for ( int i=0; i < flowerbedSize; i++ ) {
+                if ( flowerbed[i] == 1 ) {
                         can_plant = false;
-                }
-                else
-                {
-                        if (can_plant && (i + 1 == flowerbedSize || flowerbed[i+1] == 0))
-                        {
+                } else {
+                        if ( can_plant && ( i + 1 == flowerbedSize || flowerbed[i+1] == 0 ) ) {
                                 ++plant_spots;
                                 can_plant = false;
                         }

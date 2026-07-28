@@ -23,37 +23,32 @@ char** fizzBuzz(int n, int* returnSize)
     *returnSize = n;
 
     char** return_val = (char**)malloc(n * sizeof(char*));
-    if (return_val == NULL) {
+    if ( return_val == NULL ) {
         return NULL; 
     }
 
-    for (int i = 0; i < n; i++)
-    {
+    for ( int i = 0; i < n; i++ ) {
         int num = i + 1;
 
         return_val[i] = (char*)malloc(12 * sizeof(char));
-        if (return_val[i] == NULL) {
-            for (int j = 0; j < i; j++) {
+        if ( return_val[i] == NULL ) {
+            for ( int j = 0; j < i; j++ ) {
                 free(return_val[j]);
             }
+
             free(return_val);
             return NULL;
         }
 
-        if (num % 15 == 0)
-        {
+        if ( num % 15 == 0 ) {
             strcpy(return_val[i], "FizzBuzz");
-        }
-        else if (num % 3 == 0)
-        {
+
+        } else if ( num % 3 == 0 ) {
             strcpy(return_val[i], "Fizz");
-        }
-        else if (num % 5 == 0)
-        {
+
+        } else if ( num % 5 == 0 ) {
             strcpy(return_val[i], "Buzz");
-        }
-        else
-        {
+        } else {
             sprintf(return_val[i], "%d", num);
         }
     }

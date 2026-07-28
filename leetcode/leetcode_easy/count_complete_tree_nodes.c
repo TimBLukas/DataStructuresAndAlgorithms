@@ -19,12 +19,10 @@ struct TreeNode {
 
 int dfs(struct TreeNode* node)
 {
-    if (node->left == NULL && node->right == NULL) 
-    {
+    if ( node->left == NULL && node->right == NULL ) {
         return 1;
-    }
-    else
-    {
+
+    } else {
         int val = 0;
         if (node->left != NULL)
             val += dfs(node->left);

@@ -31,6 +31,7 @@ int dfs_left (struct TreeNode* node)
         int sum = 0;
         if ( node->left != NULL )
                 sum += dfs_left( node->left );
+
         if ( node->right != NULL )
                 sum += dfs_right(node->right);
 
@@ -45,25 +46,21 @@ int dfs_right (struct TreeNode* node)
         int sum = 0;
         if ( node->left != NULL )
                 sum += dfs_left( node->left );
+
         if ( node->right != NULL )
                 sum += dfs_right(node->right);
 
         return sum;
-
-
 }
 
 int sumOfLeftLeaves(struct TreeNode* root) 
 {
         int sum = 0;
-        if ( root->left != NULL )    
-        {
+        if ( root->left != NULL )
                 sum += dfs_left(root->left);
-        } 
-        if ( root->right != NULL )    
-        {
+
+        if ( root->right != NULL )
                 sum += dfs_right(root->right);
-        } 
 
         return sum;
 }

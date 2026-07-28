@@ -34,10 +34,8 @@ int largestPerimeter(int* nums, int numsSize)
 {
         qsort (nums, numsSize, sizeof(int), compare);
 
-        for ( int i=2; i < numsSize; i++ )
-        {
-                if ( isValidTriangle( nums[i], nums[i-1], nums[i-2] ) )
-                {
+        for ( int i=2; i < numsSize; i++ ) {
+                if ( isValidTriangle( nums[i], nums[i-1], nums[i-2] ) ) {
                         return calcPerimeter( nums[i], nums[i-1], nums[i-2] );
                 }
         }

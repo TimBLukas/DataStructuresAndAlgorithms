@@ -18,14 +18,13 @@ char nextGreatestLetter(char* letters, int lettersSize, char target)
 {
         char return_char = '~';
 
-        for ( int i = 0; i < lettersSize; i++ )
-        {
-                if ( (letters[i] - target > 0)
+        for ( int i = 0; i < lettersSize; i++ ) {
+                if ( (letters[i] - target > 0 )
                         && (( letters[i] - target ) < ( return_char - target )))
                         return_char = letters[i];
         }
     
-        if ( return_char == '~')
+        if ( return_char == '~' )
                 return_char = letters[0];
 
         return return_char;

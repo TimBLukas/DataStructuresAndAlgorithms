@@ -1,3 +1,6 @@
+#include <stdlib.h>
+
+
 /**
 * Definition of singly linked list
 */
@@ -22,15 +25,11 @@ struct ListNode* removeElements(struct ListNode* head, int val)
         struct ListNode* prev = &dummy;
         struct ListNode* curr = head;
 
-        while (curr != NULL) 
-        {
-                if (curr->val == val)
-                {
+        while ( curr != NULL ) {
+                if ( curr->val == val ) {
                         prev->next = curr->next;
                         curr = curr->next;
-                }
-                else 
-                {
+                } else {
                         prev = prev->next;
                         curr = curr->next;
                 }

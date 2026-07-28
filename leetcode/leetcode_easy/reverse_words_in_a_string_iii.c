@@ -15,14 +15,11 @@ char* reverseWords(char* s)
         char* result = (char *) malloc ((strlen(s) + 1) * sizeof(char));
         int length = (int)strlen(s);
         int end = 0, curr_pos = 0;
-        for ( int i = 0; i <= length; i++ )
-        {
-                if ( s[i] == ' ' || s[i]  == '\0' )
-                {
+        for ( int i = 0; i <= length; i++ ) {
+                if ( s[i] == ' ' || s[i]  == '\0' ) {
                         curr_pos = i - 1;
                         int out = end;
-                        while ( curr_pos >= end )
-                        {
+                        while ( curr_pos >= end ) {
                                 result[out++] = s[curr_pos--];
                         }
                         result[i] = s[i];

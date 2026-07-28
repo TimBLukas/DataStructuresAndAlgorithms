@@ -24,29 +24,23 @@ int minTimeToType(char* word)
         int lower = (int)'a';
         int target;
 
-        for ( int i = 0; i < strlen(word); i++ )
-        {
+        for ( int i = 0; i < strlen(word); i++ ) {
                 target = (int)word[i];
-                if ( target < curr_pos )
-                {
-                        if ( ((upper - curr_pos) + (target - lower)) < curr_pos - target)
-                        {
+                if ( target < curr_pos ) {
+                        if ( ((upper - curr_pos) + (target - lower)) < curr_pos - target ) {
                                 time += ((upper - curr_pos) + (target - lower)) + 1;
+
                         }
-                        else
-                        {
+                        else {
                                 time += curr_pos - target;
                         }
 
                 }
-                else if ( target > curr_pos )
-                {
-                        if ( ((curr_pos - lower) + (upper - target)) < target - curr_pos)
-                        {
+                else if ( target > curr_pos ) {
+                        if ( ((curr_pos - lower) + (upper - target)) < target - curr_pos) {
                                 time += ((curr_pos - lower) + (upper - target)) + 1;
-                        }
-                        else
-                        {
+
+                        } else {
                                 time += target - curr_pos;
                         }
                 }

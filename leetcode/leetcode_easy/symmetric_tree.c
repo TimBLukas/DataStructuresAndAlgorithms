@@ -20,20 +20,17 @@ struct TreeNode
 
 bool dfs ( struct TreeNode* left, struct TreeNode* right )
 {
-        if (left == NULL && right == NULL)
+        if ( left == NULL && right == NULL )
                 return true;
 
-        else if ((left == NULL && right != NULL) || (left != NULL && right == NULL))
+        else if ( ( left == NULL && right != NULL ) || ( left != NULL && right == NULL ) )
               return false;
 
         else if (left->val == right->val)
-        {
                 return dfs(left->left, right->right) && dfs( left->right, right->left);
-        }
+
         else
-        {
                 return false;
-        }
 
 }
 

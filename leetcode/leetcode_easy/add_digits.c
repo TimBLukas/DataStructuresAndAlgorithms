@@ -14,12 +14,10 @@ int addDigits(int num)
         int numDigits = floor(log10(abs(num))) + 1;
         int curr_num;
 
-        while (numDigits > 1)
-        {
+        while ( numDigits > 1 ) {
                 curr_num = num;
                 num = 0;
-                while (curr_num)
-                {
+                while ( curr_num ) {
                         num += curr_num % 10;
                         curr_num /= 10;
                 }

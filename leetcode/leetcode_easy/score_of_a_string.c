@@ -14,8 +14,7 @@ int scoreOfString(char* s)
 {
         int score = 0;
 
-        for ( int i = 0; (i + 1) < strlen(s); i++)
-        {
+        for ( int i = 0; (i + 1) < strlen(s); i++) {
                 score += abs(s[i] - s[i + 1]);
         }
 
