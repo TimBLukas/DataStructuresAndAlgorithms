@@ -1,0 +1,6 @@
+
+visualization/build/
+visualization/libs/
+/build/
+/libs/*/build/
+glfw-3.4/build/
