@@ -19,7 +19,7 @@ ListNode* listnode_create(int val);
 
 void listnode_destroy(ListNode* node);
 
-void listnode_print(const ListNode* node);
+void listnode_print(ListNode* node);
 
 ListNode* listnode_get_next(const ListNode* node);
 
@@ -40,7 +40,7 @@ void linkedlist_print(const LinkedList* list);
 
 void linkedlist_destroy(LinkedList* list);
 
-LinkedList* linkedlist_get(LinkedList* list, int val);
+ListNode* linkedlist_find(LinkedList* list, int val);
 
 int linkedlist_size(const LinkedList* list);
 
