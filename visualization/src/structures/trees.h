@@ -66,7 +66,7 @@ void binarynode_destroy(BinaryTreeNode* node);
 
 // Access
 // ------------------------------
-int binarynode_get_value(const BinaryTreeNode* node);
+inline int binarynode_get_value(const BinaryTreeNode* node);
 
 void binarynode_set_value(BinaryTreeNode* node, int value);
 
