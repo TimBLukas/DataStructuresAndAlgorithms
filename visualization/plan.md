@@ -4,7 +4,7 @@
 
 > Starting Blocks
 
-1. Write a small vec3 math module (add, sub, scale, length, normalize, random jitter). Everything downstream depends on this.
+1. Write a small vec3 math module (add, sub, scale, length, normalize, random jitter). Everything downstream depends on this. Ensure this is expandavle if necessary!
 
 2. Define the VizGraph data contract — a generic representation of "nodes with positions/velocities" and "edges between node IDs," decoupled from any specific data structure. This is the single interface every other subsystem will talk to.
 
