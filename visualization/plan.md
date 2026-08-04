@@ -64,4 +64,6 @@
 
 3. Extensibility pass: once a second or third structure type is visualized end-to-end, look back at the adapter interface and confirm it's actually generic enough for structures you haven't built yet (heaps, hash tables, tries, etc.).
 
+
+
 > At a later point implement gravity so the nodes fall to the ground in 3d space
