@@ -40,7 +40,18 @@
 // Node Functions
 // ==================================================
 
-GraphNode* graphnode_create(int value);
+GraphNode* graphnode_create(int value)
+{
+  
+  // struct GraphNode
+  // {
+  //     int value;
+  // 
+  //     GraphEdge* edges;
+  // 
+  //     GraphNode* next;
+  // } 
+}
 
 void graphnode_destroy(GraphNode* node);
 
