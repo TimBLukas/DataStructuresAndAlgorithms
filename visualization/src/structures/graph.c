@@ -291,7 +291,72 @@ void graph_clear(Graph *graph) {
 }
 
 // Traversals
+void dfs_rec(const Graph *graph, GraphNode **visited, int *visited_count,
+             GraphNode *node, int *res, int *idx) {
+    visited[(*visited_count)++] = node;
 
-void graph_dfs(const Graph *graph, int start);
+    res[(*idx)++] = node->value;
 
-void graph_bfs(const Graph *graph, int start);
+    GraphEdge *edge = node->edges;
+
+    while (edge != NULL) {
+        GraphNode *destination = edge->destination;
+
+        int already_visited = 0;
+
+        for (int i = 0; i < *visited_count; i++) {
+            if (visited[i] == destination) {
+                already_visited = 1;
+                break;
+            }
+        }
+
+        if (!already_visited) {
+            dfs_rec(graph, visited, visited_count, destination, res, idx);
+        }
+
+        edge = edge->next;
+    }
+}
+
+void graph_dfs(const Graph *graph, int start) {
+    GraphNode **visited = malloc(graph->node_count * sizeof(GraphNode *));
+
+    int *res = malloc(graph->node_count * sizeof(int));
+
+    if (visited == NULL || res == NULL) {
+        free(visited);
+        free(res);
+        return;
+    }
+
+    int visited_count = 0;
+    int idx = 0;
+
+    GraphNode *start_node = graph->head;
+
+    while (start_node != NULL) {
+        if (start_node->value == start)
+            break;
+
+        start_node = start_node->next;
+    }
+
+    if (start_node == NULL) {
+        free(visited);
+        free(res);
+        return;
+    }
+
+    dfs_rec(graph, visited, &visited_count, start_node, res, &idx);
+
+    for (int i = 0; i < idx; i++)
+        printf("%d ", res[i]);
+
+    printf("\n");
+
+    free(visited);
+    free(res);
+}
+
+void graph_bfs(const Graph *graph, int start) { /* TODO */ }
