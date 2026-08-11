@@ -6,6 +6,10 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(app
     src/main.c
+    src/structures/linked_list.c
+    src/structures/trees.c
+    src/structures/graph.c
+    src/renderer/shader.c
     external/glad/glad.c
 )
 
