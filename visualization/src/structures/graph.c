@@ -294,34 +294,26 @@ void graph_clear(Graph *graph) {
 void dfs_rec(const Graph *graph, GraphNode **visited, int *visited_count,
              GraphNode *node, int *res, int *idx) {
     visited[(*visited_count)++] = node;
-
     res[(*idx)++] = node->value;
-
     GraphEdge *edge = node->edges;
-
     while (edge != NULL) {
         GraphNode *destination = edge->destination;
-
         int already_visited = 0;
-
         for (int i = 0; i < *visited_count; i++) {
             if (visited[i] == destination) {
                 already_visited = 1;
                 break;
             }
         }
-
         if (!already_visited) {
             dfs_rec(graph, visited, visited_count, destination, res, idx);
         }
-
         edge = edge->next;
     }
 }
 
 void graph_dfs(const Graph *graph, int start) {
     GraphNode **visited = malloc(graph->node_count * sizeof(GraphNode *));
-
     int *res = malloc(graph->node_count * sizeof(int));
 
     if (visited == NULL || res == NULL) {
@@ -332,7 +324,6 @@ void graph_dfs(const Graph *graph, int start) {
 
     int visited_count = 0;
     int idx = 0;
-
     GraphNode *start_node = graph->head;
 
     while (start_node != NULL) {
@@ -354,9 +345,79 @@ void graph_dfs(const Graph *graph, int start) {
         printf("%d ", res[i]);
 
     printf("\n");
+    free(visited);
+    free(res);
+}
+void bfs_connected(const Graph *graph, GraphNode *node, GraphNode **visited,
+                   int *visited_count, int *res, int *res_size) {
+    GraphNode **queue = malloc(graph->node_count * sizeof(GraphNode *));
+    if (queue == NULL)
+        return;
+
+    int front = 0;
+    int rear = 0;
+    queue[rear++] = node;
+    visited[(*visited_count)++] = node;
+
+    while (front < rear) {
+        GraphNode *current = queue[front++];
+        res[(*res_size)++] = current->value;
+        GraphEdge *edge = current->edges;
+
+        while (edge != NULL) {
+            GraphNode *destination = edge->destination;
+            int already_visited = 0;
+
+            for (int i = 0; i < *visited_count; i++) {
+                if (visited[i] == destination) {
+                    already_visited = 1;
+                    break;
+                }
+            }
+
+            if (!already_visited) {
+                visited[(*visited_count)++] = destination;
+                queue[rear++] = destination;
+            }
+            edge = edge->next;
+        }
+    }
+
+    free(queue);
+}
+
+void graph_bfs(const Graph *graph, int start) {
+    GraphNode **visited = malloc(graph->node_count * sizeof(GraphNode *));
+    int *res = malloc(graph->node_count * sizeof(int));
+    if (visited == NULL || res == NULL) {
+        free(visited);
+        free(res);
+        return;
+    }
+
+    int visited_count = 0;
+    int res_size = 0;
+    GraphNode *start_node = graph->head;
+
+    while (start_node != NULL) {
+        if (start_node->value == start)
+            break;
+
+        start_node = start_node->next;
+    }
+
+    if (start_node == NULL) {
+        free(visited);
+        free(res);
+        return;
+    }
+
+    bfs_connected(graph, start_node, visited, &visited_count, res, &res_size);
+
+    for (int i = 0; i < res_size; i++)
+        printf("%d ", res[i]);
+    printf("\n");
 
     free(visited);
     free(res);
 }
-
-void graph_bfs(const Graph *graph, int start) { /* TODO */ }
