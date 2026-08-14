@@ -1,0 +1,26 @@
+# Build artifacts
+build/
+app
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# glfw build artifacts (bundled vendor build)
+libs/glfw-3.4/build/
+libs/glfw-3.4/**/CMakeFiles/
+libs/glfw-3.4/**/Makefile
+
+# object files and intermediate
+*.o
+*.obj
+*.so
+*.a
+
+# Editor/temp
+*~
+*.swp
+.DS_Store
+
+# Logs
+*.log
