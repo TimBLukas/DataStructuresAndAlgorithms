@@ -1,0 +1,16 @@
+https://leetcode.com/problems/richest-customer-wealth/description/?envType=problem-list-v2&envId=array
+https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/description/?envType=problem-list-v2&envId=array
+https://leetcode.com/problems/maximum-binary-tree/description/?envType=problem-list-v2&envId=array
+https://leetcode.com/problems/removing-stars-from-a-string/description/?envType=problem-list-v2&envId=string
+https://leetcode.com/problems/minimize-string-length/description/?envType=problem-list-v2&envId=string
+https://leetcode.com/problems/lexicographically-smallest-string-after-applying-operations/description/?envType=problem-list-v2&envId=string
+https://leetcode.com/problems/finding-the-users-active-minutes/description/?envType=problem-list-v2&envId=hash-table
+https://leetcode.com/problems/number-of-good-pairs/description/?envType=problem-list-v2&envId=hash-table
+https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/description/?envType=problem-list-v2&envId=hash-table
+https://leetcode.com/problems/maximum-score-words-formed-by-letters/description/?envType=problem-list-v2&envId=hash-table
+https://leetcode.com/problems/strictly-palindromic-number/description/?envType=problem-list-v2&envId=two-pointers
+https://leetcode.com/problems/reverse-string-prefix/description/?envType=problem-list-v2&envId=two-pointers
+https://leetcode.com/problems/rearrange-array-elements-by-sign/description/?envType=problem-list-v2&envId=two-pointers
+https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/description/?envType=problem-list-v2&envId=two-pointers
+https://leetcode.com/problems/lexicographically-smallest-palindrome/description/?envType=problem-list-v2&envId=two-pointers
+https://leetcode.com/problems/merge-two-2d-arrays-by-summing-values/description/?envType=problem-list-v2&envId=two-pointers
