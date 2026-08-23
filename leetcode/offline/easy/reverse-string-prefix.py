@@ -57,7 +57,7 @@ import unittest
 
 class Solution:
     def reversePrefix(self, s: str, k: int) -> str:
-        pass  # TODO: implement
+        return "".join(reversed(s[0:k])) + s[k:]
 
 
 class TestReverseStringPrefix(unittest.TestCase):
