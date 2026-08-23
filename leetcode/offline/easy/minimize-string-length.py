@@ -85,7 +85,7 @@ import unittest
 
 class Solution:
     def minimizedStringLength(self, s: str) -> int:
-        pass  # TODO: implement
+        return len(set(s))
 
 
 class TestMinimizeStringLength(unittest.TestCase):

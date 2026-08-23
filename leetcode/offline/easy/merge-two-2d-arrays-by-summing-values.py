@@ -64,7 +64,39 @@ import unittest
 
 class Solution:
     def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
-        pass  # TODO: implement
+        idx_1, idx_2 = 0,0
+        result = []
+
+        while idx_1 < len(nums1) and idx_2 < len(nums2):
+            if idx_1 < len(nums1) and nums1[idx_1][0] < nums2[idx_1][0]:
+                result.append(nums1[idx_1])
+                idx_1 += 1
+
+            elif idx_2 < len(nums2) and nums1[idx_1][0] > nums2[idx_1][0]:
+                result.append(nums2[idx_2])
+                idx_2 += 1
+
+            elif idx_1 < len(nums1) and idx_2 < len(nums2):
+                value = nums2[idx_2][1] + nums1[idx_1][1]
+                result.append([nums2[idx_2][0], value])
+                idx_2 += 1
+                idx_1 += 1
+
+            else:
+                break
+
+        if idx_1 < len(nums1):
+            while idx_1 < len(nums1):
+                result.append(nums1[idx_1])
+                idx_1 += 1
+
+        if idx_2 < len(nums2):
+            while idx_2 < len(nums2):
+                result.append(nums1[idx_2])
+                idx_2 += 1
+        return result
+
+
 
 
 class TestMergeTwo2dArraysBySummingValues(unittest.TestCase):

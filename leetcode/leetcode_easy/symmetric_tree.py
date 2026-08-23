@@ -1,6 +1,14 @@
 # Optional Imports:
-# from typing import List, Optional
+from typing import List, Optional
+
 # import collections
+
+"""
+Leetcode 101: Symmetric Tree
+
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+"""
+
 import unittest
 
 
@@ -13,9 +21,24 @@ class TreeNode:
 
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        def _sub(node: TreeNode):
-            if node.left is not None:
-                pass
+        def _sub(left: Optional[TreeNode], right: Optional[TreeNode]) -> bool:
+            if left is None or right is None:
+                return left == right
+
+            elif left.val == right.val:
+                if left.right == right.left and left.left == right.right:
+                    return _sub(left.left, right.right) and _sub(left.right and right.left)
+                else:
+                    return False
+            else:
+                return False
+
+        if (not root) or (root.left and not root.right) or (root.right and not root.left):
+            return False
+        else:
+            if root.left == root.right:
+                return _sub(root.left, root.right)
+                
 
 
 if __name__ == "__main__":
