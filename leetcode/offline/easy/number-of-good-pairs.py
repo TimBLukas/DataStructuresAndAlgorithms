@@ -40,7 +40,13 @@ import unittest
 
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        pass  # TODO: implement
+        count = 0
+        for i, n in enumerate(nums):
+            cnt_idx = nums[i+1:].count(n)
+            count += cnt_idx
+
+        return count
+
 
 
 class TestNumberOfGoodPairs(unittest.TestCase):
