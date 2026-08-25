@@ -54,7 +54,10 @@ import unittest
 
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
-        pass  # TODO: implement
+        richest = 0
+        for customer in accounts:
+            richest = max(richest, sum(customer))
+        return richest 
 
 
 class TestRichestCustomerWealth(unittest.TestCase):
