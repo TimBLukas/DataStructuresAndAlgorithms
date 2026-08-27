@@ -58,7 +58,23 @@ import unittest
 
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
-        pass  # TODO: implement
+        pos, neg, is_pos = [], [], True
+        result = []
+
+        for n in nums:
+            if n >= 0:
+                pos.append(n)
+            else:
+                neg.append(n)
+        i = 0 
+        while i < len(neg):
+            result.append(pos[i])
+            result.append(neg[i])
+            i += 1
+        
+        return result
+
+
 
 
 class TestRearrangeArrayElementsBySign(unittest.TestCase):
