@@ -53,7 +53,14 @@ import unittest
 
 class Solution:
     def removeStars(self, s: str) -> str:
-        pass  # TODO: implement
+        result = []
+
+        for c in s:
+            if c == "*":
+                result.pop()
+            else:
+                result.append(c)
+        return "".join(result)
 
 
 class TestRemovingStarsFromAString(unittest.TestCase):
