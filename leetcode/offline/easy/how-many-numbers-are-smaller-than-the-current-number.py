@@ -59,6 +59,7 @@ class Solution:
         for n in nums:
             result.append(mapper.get(n))
 
+        return result
 
 
 class TestHowManyNumbersAreSmallerThanTheCurrentNumber(unittest.TestCase):
