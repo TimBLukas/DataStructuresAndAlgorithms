@@ -40,13 +40,25 @@
 from __future__ import annotations
 
 from typing import List
+from collections import Counter
 
 import unittest
 
 
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        ...
+        c, val, mapper, result = Counter(nums), 0, {}, []
+        nums2 = nums.copy()
+        nums2.sort()
+
+        for n in nums2:
+            if n not in mapper.keys():
+                mapper[n] = val
+                val += c.get(n)
+        
+        for n in nums:
+            result.append(mapper.get(n))
+
 
 
 class TestHowManyNumbersAreSmallerThanTheCurrentNumber(unittest.TestCase):
