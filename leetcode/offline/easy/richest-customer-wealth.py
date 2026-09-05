@@ -62,13 +62,17 @@ class Solution:
 
 class TestRichestCustomerWealth(unittest.TestCase):
     def test_example_1(self) -> None:
-        self.assertEqual(Solution().maximumWealth(accounts=[[1,2,3],[3,2,1]]), 6)
+        self.assertEqual(Solution().maximumWealth(accounts=[[1, 2, 3], [3, 2, 1]]), 6)
 
     def test_example_2(self) -> None:
-        self.assertEqual(Solution().maximumWealth(accounts=[[1,5],[7,3],[3,5]]), 10)
+        self.assertEqual(
+            Solution().maximumWealth(accounts=[[1, 5], [7, 3], [3, 5]]), 10
+        )
 
     def test_example_3(self) -> None:
-        self.assertEqual(Solution().maximumWealth(accounts=[[2,8,7],[7,1,3],[1,9,5]]), 17)
+        self.assertEqual(
+            Solution().maximumWealth(accounts=[[2, 8, 7], [7, 1, 3], [1, 9, 5]]), 17
+        )
 
     def test_edgecase(self) -> None:
         pass  # TODO add your own edge cases.
