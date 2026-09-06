@@ -8,6 +8,15 @@ Return s after removing all occurrences of part.
 A substring is a contiguous sequence of characters in a string.
 """
 
+import re
+
 
 class Solution:
-    def removeOccurrences(self, s: str, part: str) -> str: ...
+    def removeOccurrences(self, s: str, part: str) -> str:
+        while True:
+            if part in s:
+                s = re.sub(part, "", s, count=1)
+            else:
+                break
+
+        return s
