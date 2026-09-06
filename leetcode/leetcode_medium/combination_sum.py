@@ -15,4 +15,12 @@ from typing import List
 
 
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]: ...
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        result = []
+        for i in candidates[::-1]:
+            if i == target:
+                result.append([i])
+            if i < target:
+                sum = i
+                while 
+
