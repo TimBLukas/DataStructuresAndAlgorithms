@@ -11,10 +11,21 @@ The punishment number of n is defined as the sum of the squares of all integers 
 
 class Solution:
     def punishmentNumber(self, n: int) -> int:
+        def is_valid_partition(s, target, index=0, total=0) -> bool:
+            if index == len(s):
+                return total == target
+
+            for j in range(index, len(s)):
+                num = int(s[index : j + 1])
+
+                if is_valid_partition(s, target, j + 1, total + num):
+                    return True
+            return False
+
         punishment = 0
-        for i in range(n):
-            val = i * i
-            if sum([int(c) for c in str(val)]) == i:
-                punishment += val
+        for i in range(1, n + 1):
+            value = i * i
+            if is_valid_partition(str(value), i):
+                punishment += value
 
         return punishment
