@@ -37,15 +37,28 @@ class Solution:
             left_result = recursive(child.left)
             right_result = recursive(child.right)
             if left_result and right_result:
-                max_subtree = max(left_result.max_subtree, right_result.max_subtree, (max(0, left_result.max_path) + max(0, right_result.max_path) + child.val), child.val)
+                max_subtree = max(
+                    left_result.max_subtree,
+                    right_result.max_subtree,
+                    (max(0, left_result.max_path) + max(0, right_result.max_path) + child.val),
+                    child.val
+                )
                 max_path = max(left_result.max_path + child.val, child.val, right_result.max_path + child.val)
 
             elif left_result:
-                max_subtree = max(left_result.max_subtree, (max(0, left_result.max_path) + child.val), child.val)
+                max_subtree = max(
+                    left_result.max_subtree,
+                    (max(0, left_result.max_path) + child.val),
+                    child.val
+                )
                 max_path = max(left_result.max_path + child.val, child.val)
 
             elif right_result:
-                max_subtree = max(right_result.max_subtree, (max(0, right_result.max_path) + child.val), child.val)
+                max_subtree = max(
+                    right_result.max_subtree,
+                    (max(0, right_result.max_path) + child.val),
+                    child.val
+                )
                 max_path = max(right_result.max_path + child.val, child.val)
 
             return RecResult(max_subtree, max_path)
